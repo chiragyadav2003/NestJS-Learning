@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Controller, Get, Param, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
 
 @Controller()
@@ -18,5 +18,13 @@ export class AppController {
       message: 'User stored successfully!',
       data: req.body
     }
+  }
+
+  @Get('/:userId')
+  getUserId(@Param('userId') userId: number) {
+    return {
+      message: 'User details',
+      userId: userId
+    };
   }
 }
