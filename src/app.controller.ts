@@ -1,4 +1,5 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
 
 @Controller()
 export class AppController {
@@ -11,9 +12,11 @@ export class AppController {
   }
 
   @Post()
-  storeUser() {
+  storeUser(@Req() req: Request) {
+    console.log(req.body);
     return {
-      message: 'User stored successfully!'
+      message: 'User stored successfully!',
+      data: req.body
     }
   }
 }
