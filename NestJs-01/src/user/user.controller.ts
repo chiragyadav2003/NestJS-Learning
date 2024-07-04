@@ -1,7 +1,11 @@
 import { Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
+  // injecting the userService into the controller
+  constructor(private userService: UserService) { }
+
   @Get()
   getUser() {
     return {
