@@ -28,4 +28,12 @@ export class UserService {
     }
   }
 
+  //get user by userId
+  getUserById(userId: number) {
+    return {
+      message: "User fetched successfully",
+      userId: userId
+    }
+  }
+
 }

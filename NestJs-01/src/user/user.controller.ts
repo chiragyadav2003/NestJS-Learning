@@ -23,7 +23,7 @@ export class UserController {
   }
 
   @Get('/:userId')
-  getUserId(@Param() params: { userId: number }) {
-    return params;
+  getUser(@Param() param: { userId: number }) {
+    return this.userService.getUserById(param.userId)
   }
 }
