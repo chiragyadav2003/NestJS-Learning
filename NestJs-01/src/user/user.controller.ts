@@ -1,5 +1,6 @@
 import { Controller, Get, Param, Post, Req } from '@nestjs/common';
 import { UserService } from './user.service';
+import { Request } from 'express';
 
 @Controller('user')
 export class UserController {
@@ -7,19 +8,13 @@ export class UserController {
   constructor(private userService: UserService) { }
 
   @Get()
-  getUser() {
-    return {
-      message: 'User fetched successfully!',
-    }
+  get() {
+    return this.userService.getUser();
   }
 
   @Post()
-  storeUser(@Req() req: Request) {
-    console.log(req.body);
-    return {
-      message: 'User stored successfully!',
-      data: req.body
-    }
+  store(@Req() req: Request) {
+    return this.userService.storeUser(req);
   }
 
   @Get('/:userId')
