@@ -21,10 +21,7 @@ export class AppController {
   }
 
   @Get('/:userId')
-  getUserId(@Param('userId') userId: number) {
-    return {
-      message: 'User details',
-      userId: userId
-    };
+  getUserId(@Param() params: { userId: number }) {
+    return params;
   }
 }
