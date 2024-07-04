@@ -19,4 +19,13 @@ export class UserService {
     }
   }
 
+  // update user by userId
+  updateUser(req: Request, userId: number) {
+    return {
+      message: 'User updated successfully',
+      userId: userId,
+      data: req.body
+    }
+  }
+
 }

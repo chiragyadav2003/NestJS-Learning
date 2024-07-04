@@ -18,11 +18,8 @@ export class UserController {
   }
 
   @Patch('/:userId')
-  updateUser(@Param() params: { userId: number }) {
-    return {
-      message: 'Patch request received',
-      userId: params.userId
-    }
+  update(@Param() params: { userId: number }, @Req() req: Request) {
+    return this.userService.updateUser(req, params.userId)
   }
 
   @Get('/:userId')
