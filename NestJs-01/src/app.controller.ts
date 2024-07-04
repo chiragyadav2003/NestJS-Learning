@@ -4,24 +4,7 @@ import { Request } from 'express';
 @Controller()
 export class AppController {
   @Get()
-  getUser() {
-    return {
-      message: 'Hello World!',
-      data: { name: 'John Doe', age: 30 }
-    }
-  }
-
-  @Post()
-  storeUser(@Req() req: Request) {
-    console.log(req.body);
-    return {
-      message: 'User stored successfully!',
-      data: req.body
-    }
-  }
-
-  @Get('/:userId')
-  getUserId(@Param() params: { userId: number }) {
-    return params;
+  checkApp() {
+    return 'This is the root of the app';
   }
 }
