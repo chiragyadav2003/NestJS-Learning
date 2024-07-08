@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UserService {
@@ -11,7 +13,7 @@ export class UserService {
   }
 
   // creating a method to store the user
-  storeUser(body: any) {
+  createUser(body: CreateUserDto) {
     return {
       message: 'User stored successfully',
       data: body
@@ -19,7 +21,7 @@ export class UserService {
   }
 
   // update user by userId
-  updateUser(body: any, userId: number) {
+  updateUser(body: UpdateUserDto, userId: number) {
     return {
       message: 'User updated successfully',
       userId: userId,
