@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Request } from 'express';
 
 @Injectable()
 export class UserService {
@@ -12,19 +11,19 @@ export class UserService {
   }
 
   // creating a method to store the user
-  storeUser(req: Request) {
+  storeUser(body: any) {
     return {
       message: 'User stored successfully',
-      data: req.body
+      data: body
     }
   }
 
   // update user by userId
-  updateUser(req: Request, userId: number) {
+  updateUser(body: any, userId: number) {
     return {
       message: 'User updated successfully',
       userId: userId,
-      data: req.body
+      data: body
     }
   }
 

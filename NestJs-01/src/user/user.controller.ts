@@ -1,6 +1,5 @@
-import { Controller, Get, Param, Patch, Post, Req } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { UserService } from './user.service';
-import { Request } from 'express';
 
 @Controller('user')
 export class UserController {
@@ -13,13 +12,13 @@ export class UserController {
   }
 
   @Post()
-  store(@Req() req: Request) {
-    return this.userService.storeUser(req);
+  store(@Body() body: any) {
+    return this.userService.storeUser(body);
   }
 
   @Patch('/:userId')
-  update(@Param() params: { userId: number }, @Req() req: Request) {
-    return this.userService.updateUser(req, params.userId)
+  update(@Param() params: { userId: number }, @Body() body: any) {
+    return this.userService.updateUser(body, params.userId)
   }
 
   @Get('/:userId')
