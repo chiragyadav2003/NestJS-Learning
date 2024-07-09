@@ -15,7 +15,6 @@ export class UserService {
   // creating a method to store the user
   createUser(body: CreateUserDto) {
     return {
-      message: 'User stored successfully',
       data: body
     }
   }
@@ -23,7 +22,6 @@ export class UserService {
   // update user by userId
   updateUser(body: UpdateUserDto, userId: number) {
     return {
-      message: 'User updated successfully',
       userId: userId,
       data: body
     }
@@ -31,18 +29,12 @@ export class UserService {
 
   //get user by userId
   getUserById(userId: number) {
-    return {
-      message: "User fetched successfully",
-      userId: userId
-    }
+    return { userId }
   }
 
   //delete user by userId
   deleteUser(userId: number) {
-    return {
-      message: "User deleted successfully",
-      userId: userId
-    }
+    return { userId }
   }
 
 }
