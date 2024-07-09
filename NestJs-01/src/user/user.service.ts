@@ -21,27 +21,27 @@ export class UserService {
   }
 
   // update user by userId
-  updateUser(body: UpdateUserDto, param: { userId: number }) {
+  updateUser(body: UpdateUserDto, userId: number) {
     return {
       message: 'User updated successfully',
-      userId: param.userId,
+      userId: userId,
       data: body
     }
   }
 
   //get user by userId
-  getUserById(param: { userId: number }) {
+  getUserById(userId: number) {
     return {
       message: "User fetched successfully",
-      userId: param.userId
+      userId: userId
     }
   }
 
   //delete user by userId
-  deleteUser(param: { userId: number }) {
+  deleteUser(userId: number) {
     return {
       message: "User deleted successfully",
-      userId: param.userId
+      userId: userId
     }
   }
 
