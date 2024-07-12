@@ -7,23 +7,9 @@ export class AuthService {
 
   async validateUser(email: string, password: string) {
     const user = await this.userService.getUserByEmail(email);
-    if (user) {
-      if (user.password === password) {
-        return {
-          message: "login successful",
-          success: true
-        }
-      }
-      return {
-        message: "wrong password",
-        success: false
-      }
+    if (user && user.password === password) {
+      return user;
     }
-    return {
-      message: "user not found",
-      success: false
-    }
-
+    return null;
   }
-
 }
